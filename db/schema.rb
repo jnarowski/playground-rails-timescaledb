@@ -27,11 +27,12 @@ ActiveRecord::Schema.define(version: 2019_08_20_192231) do
   create_table "stats", id: false, force: :cascade do |t|
     t.date "date", null: false
     t.integer "clicks"
+    t.string "url"
     t.integer "webpage_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["date", "clicks"], name: "stats_date_clicks_idx", order: { date: :desc }
-    t.index ["date"], name: "index_stats_on_date", unique: true
+    t.integer "website_id", null: false
+    t.integer "account_id", null: false
+    t.index ["date", "webpage_id", "website_id", "account_id"], name: "stats_date_webpage_id_website_id_account_id_idx", order: { date: :desc }
+    t.index ["date"], name: "stats_date_idx", order: :desc
   end
 
 end

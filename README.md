@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Ruby version**
 
-Things you may want to cover:
+2.6.3
 
-* Ruby version
+## Setup 
 
-* System dependencies
+### Docker
+> docker network create clickflow_timescale_default
 
-* Configuration
+> docker-compose up
 
-* Database creation
+### Rails
 
-* Database initialization
+> bundle install
 
-* How to run the test suite
+> rake db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
+> rake db:seed
 
-* Deployment instructions
+### Timescale 
 
-* ...
+https://docs.timescale.com/latest/introduction
