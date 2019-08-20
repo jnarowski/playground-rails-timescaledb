@@ -1,8 +1,8 @@
-Stat.delete_all
+ActiveRecord::Base.connection.execute("TRUNCATE stats RESTART IDENTITY")
 
 (Date.new(2010, 1, 1)..Date.today).each do |date|
   stats = []
-  1.upto(1) do |website_id|
+  1.upto(100) do |website_id|
     1.upto(1000) do |webpage_id|
       stats << {
         date: date,

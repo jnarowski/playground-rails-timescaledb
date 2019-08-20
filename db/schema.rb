@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_192231) do
+ActiveRecord::Schema.define(version: 2019_08_20_203129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 2019_08_20_192231) do
     t.integer "account_id", null: false
     t.index ["date", "webpage_id", "website_id", "account_id"], name: "stats_date_webpage_id_website_id_account_id_idx", order: { date: :desc }
     t.index ["date"], name: "stats_date_idx", order: :desc
+  end
+
+  create_table "widgets", id: false, force: :cascade do |t|
+    t.bigserial "id", null: false
+    t.date "date", null: false
+    t.integer "clicks"
+    t.index ["date"], name: "widgets_date_idx", order: :desc
   end
 
 end
